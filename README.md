@@ -12,7 +12,7 @@ Example:
 	<?php
 		$rules = array(
 			'something/(.*)/other/(.*)' => array (
-													'Userland\Homepage\Something'
+													'Userland\Homepage\Something',
 													'param1',
 													'param2',
 													),
