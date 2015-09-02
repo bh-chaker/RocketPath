@@ -18,6 +18,10 @@ function rocket_path_parse_location_header(){
 }
 
 function rocket_path_parse_output_buffer($buffer, $flags){
+	// Prevent parsing $buffer when it's not HTML (at least try to guess)
+        if ( strlen($b = trim($buffer)) < 20 || !preg_match('/<(a|form|script)\b/', $b) ) {
+            return $buffer;
+        }
 	try{
 		$template = new DOMTemplate($buffer);
 		RocketPath::parse_template($template);
